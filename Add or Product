@@ -1,0 +1,27 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+
+	public static long sumOrProduct(int n, int q) {
+		long sum=1;
+		// Write your code here
+		if(q==1)
+		{
+			sum=0;
+			sum = n*(n+1)/2;
+		}
+		else if(q==2)
+		{
+			while(n!=0)
+			{
+				sum=(sum*n)%1000000007;
+				n=n-1;
+			}	
+
+			
+		}
+		return sum;
+	}
+
+	
+}
