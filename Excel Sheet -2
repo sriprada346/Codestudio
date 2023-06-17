@@ -1,0 +1,19 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static long titleToNumber(String str)
+    {
+        
+        long l=0;
+
+        for(int i=0;i<str.length();i++)
+        {
+             double x = str.charAt(str.length()-i-1)-'A';      // Starting from right side of input
+             double y =(x+1)* Math.pow(26,i);                  
+
+             l=l+(long)y;
+        }
+         return l;
+    }
+   
+}
