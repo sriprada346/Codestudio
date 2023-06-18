@@ -1,0 +1,17 @@
+
+public class Solution {
+
+    public static int maxXor(int L, int R) {
+        int maxxor = 0;
+        
+        for(int i=L;i<R;i++)
+        {
+            for(int j=L+1;j<R+1;j++)
+            {  
+                maxxor=Math.max(i^j,maxxor);    // i^j finding xor for 2 numbers 
+                
+            }
+        }
+        return maxxor;
+    }
+}
