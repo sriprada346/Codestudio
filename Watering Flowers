@@ -1,0 +1,25 @@
+public class Solution {
+    public static int totalSteps(int n, int k, int[] flowers) {
+        // Write your code here.
+       
+        int step=0;
+        int capacity = k;
+        for(int i=0;i<n;i++)
+        { 
+            if(flowers[i]<=capacity)
+            {
+                capacity -= flowers[i];
+                step++;
+            }
+            else
+            {
+                step+= i*2;
+                capacity = k-flowers[i];
+                step++;
+            }
+        }
+
+        return step;
+
+    }
+}
