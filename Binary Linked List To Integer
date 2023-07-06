@@ -1,0 +1,42 @@
+/********************************************************
+
+    Following is the class structure of the Node class:
+    
+    class Node
+    {
+        public:
+            int data;
+            Node next;
+            Node(int data)
+            {
+                this.data = data;
+                this.next = null;
+            }
+    };
+
+********************************************************/
+
+public class Solution {
+    public static int binaryToInteger(int n, Node head) {
+        // Write your code here.
+        Node temp = head;
+
+        StringBuilder s = new StringBuilder();
+
+        while(head!=null)
+        {
+            if(head.data == 1 || head.data == 0)
+            {
+                s.append(head.data);
+                head=head.next;
+            }
+
+        }
+       // String y = s.toString();
+       String y = new String(s);
+
+        int x = Integer.parseInt(y,2);
+    return x;
+   
+    }
+}
