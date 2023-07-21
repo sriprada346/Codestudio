@@ -1,0 +1,51 @@
+import java.util.*;
+
+
+// find number of times can make a string 'karkala'  from given string 
+public class karkala{
+    
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        sc.close();
+        
+        int k=0,a=0,r=0,l=0;
+        int[] arr = new int[4];
+
+        for(char st : s.toCharArray())
+        {
+            if(st == 'a')
+            {
+               arr[0]++;
+            }
+            else if(st == 'k')
+            {
+               arr[1]++;
+            }
+            else if(st == 'r')
+            {
+               arr[2]++;
+            }
+            else if(st == 'l')
+            {
+               arr[3]++;
+            }
+
+        }
+        a=arr[0];
+        k=arr[1];
+        r = arr[2];
+        l = arr[3];
+
+        int min_value1 = Math.min(a/3,k/2);
+        int min_value2 = Math.min(l,r);
+
+        int min_val = Math.min(min_value1,min_value2);
+
+        System.out.println(min_val);
+
+        
+      
+    }
+}
