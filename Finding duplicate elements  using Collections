@@ -23,3 +23,14 @@ public class Solution{
         return 0;
     }
 }
+
+
+***************************************** ArrayList Approach **************************
+for (int num : arr) {
+            if (!arrayList.contains(num)) {
+                arrayList.add(num);
+            } else {
+                // If the element already exists, remove it from the list
+                arrayList.remove(Integer.valueOf(num));
+            }
+        }
