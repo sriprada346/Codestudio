@@ -1,0 +1,15 @@
+public class Solution{  
+
+    public static int findUnique(int[] arr){
+
+		//Your code goes here
+
+     int result = 0;   // x^0 = 0;   x^x=x;   x^y = binary(x)+binary(y) ex: 1^2 = 3
+
+      for(int x : arr)
+      {
+          result ^= x;
+      }
+      return result;
+    }
+}
