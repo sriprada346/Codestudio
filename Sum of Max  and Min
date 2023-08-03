@@ -1,0 +1,22 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+  public static int sumOfMaxMin(int[] arr, int n) {
+      // Write your code here.
+      int low=0,high=0;
+      
+      List<Integer> lst = new ArrayList<>();
+
+      for(Integer a : arr)
+      {
+        lst.add(a);
+      }
+
+      Collections.sort(lst);
+
+      low = lst.get(0);
+      high = lst.get(n-1);
+
+      return low+high;
+  }
+}
