@@ -1,0 +1,29 @@
+import java.util.* ;
+import java.io.*;                          //INPUT :   GD@Un!IMyI6
+                                              
+
+public class Solution {
+
+	public static boolean checkPalindrome(String str) {
+	
+	    // WRITE YOUR CODE HERE	
+		char[] ch = new char[str.length()];
+		ch = str.toCharArray();
+		StringBuilder sb = new StringBuilder();
+		for(char c : ch)
+		{
+			if(Character.isAlphabetic(c))
+			{
+				sb.append(Character.toLowerCase(c));
+			}
+		}
+		
+		String st = sb.toString();
+		String revset = sb.reverse().toString();
+
+		
+		
+		return st.equals(revset);
+	 
+	}
+}
