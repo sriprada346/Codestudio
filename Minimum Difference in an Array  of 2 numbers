@@ -1,0 +1,20 @@
+import java.util.* ;
+import java.io.*; 
+
+
+public class Solution {
+
+    static int minDiff(int n, int[] arr) {
+        
+        int mi = 9999;
+       
+        Arrays.sort(arr);
+
+        for(int i=1;i<n;i++)
+        {
+             mi = Math.min(mi,arr[i]-arr[i-1]);
+        }
+       
+        return mi;
+    }
+}
