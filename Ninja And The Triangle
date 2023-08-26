@@ -1,0 +1,18 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static int ninjaAndTriangle(int n) {
+        // Write your code here.
+
+        int count =0;
+        int num_count=0;
+        int i=0;
+
+        while(count <= n && count + i <n)
+        {
+            count += ++i;
+            num_count++;
+        }
+        return num_count;      
+    }
+}
