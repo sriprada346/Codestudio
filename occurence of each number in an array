@@ -1,0 +1,22 @@
+public class hashing{
+    public static void main(String args[])
+    {
+         int[] a = {1,2,1,4,1,3,2};
+
+
+        int[] hash_ar = new int[10];
+
+        for(int i=0;i<a.length;i++)
+        {
+            hash_ar[a[i]]+=1;
+        }
+
+        for(int i=0;i<hash_ar.length;i++)
+        {
+            if(hash_ar[i]>0)
+            {
+                System.out.println(i + ":"+hash_ar[i]);
+            }
+        }
+}
+}
