@@ -1,0 +1,31 @@
+import java.util.* ;
+import java.io.*; 
+import java.util.ArrayList;
+
+public class Solution {
+
+	public static ArrayList<Integer> countDistinctElements(ArrayList<Integer> arr, int k) {
+
+		// Write your code here
+		
+		int i=0,j=k-1;
+		ArrayList<Integer> final_arr = new ArrayList<Integer>();
+	
+		while(i<=arr.size()-k)
+		{	int num= i+k;
+			ArrayList<Integer> ar = new ArrayList<Integer>();
+			for(int y=i;y<num;y++)
+			{
+				if(!ar.contains(arr.get(y)))
+				{
+					ar.add(arr.get(y));
+				}
+			}
+			final_arr.add(ar.size());
+			i++;
+		}
+
+		return final_arr;
+	
+	}
+}
