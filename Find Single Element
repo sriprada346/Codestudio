@@ -1,0 +1,23 @@
+import java.util.*;
+public class Solution {
+    public static int getSingleElement(int []arr){
+        // Write your code here.
+        ArrayList<Integer> ar = new ArrayList<>();
+
+        for(int i:arr)
+        {
+            if(!ar.contains(i))
+            {
+                ar.add(i);
+            }
+            else
+            {
+                ar.remove(Integer.valueOf(i));
+            }
+        }
+
+        int val = ar.get(0);
+        return val;
+
+    }
+}
