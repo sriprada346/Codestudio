@@ -1,0 +1,74 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution
+{
+    public static int countMegaPrimeNumber(int left, int right) 
+    {
+        // Write your code here.
+        int sum=0;
+        for(int i =left;i<=right;i++)
+        {
+                if(isprime(i))
+                {
+                    int x = arealldigitsprime(i);
+                    sum+=x;       
+                }
+            }
+         return sum;
+    }
+       
+    
+
+
+    public static boolean isprime(int n)
+    {
+        if(n <= 1)
+        {
+            return false;
+        }
+        if(n <= 3)
+        {
+            return true;
+        }
+        if(n % 2 ==0 || n%3 == 0)
+        {
+            return false;
+        }
+
+        for(int i=5;i*i<=n;i+=6){
+            if(n%i==0 || n%(i+2)==0)
+            {
+                return false;
+            }
+        }
+
+        return true;
+        
+    }
+
+
+    public static int arealldigitsprime(int n)
+    {
+        int x = 0;
+        boolean val = true;
+        while(n > 0)
+        {
+            int digit = n%10;
+            if(!isprime(digit))
+            {
+                val = false;
+            }
+            n/=10;
+            x +=  digit;
+        }
+
+        if(val == true)
+        {
+            return 1;
+        }
+        else
+            return 0;
+        
+    }
+}
+
