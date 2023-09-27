@@ -1,0 +1,28 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static int countColumns(String[] strings){
+        // Write your code here.
+        int total_count=0;
+
+        for(int col=0;col<strings[0].length();col++)
+        {
+            boolean unsorted = false;
+            for(int row=1;row<strings.length;row++)
+            {
+                if(strings[row].charAt(col) < strings[row-1].charAt(col))
+                {
+                    unsorted=true;
+                    break;
+                }
+            }
+
+            if(unsorted)
+            {
+                total_count++;
+            }
+        }
+
+        return total_count;
+    }
+}
