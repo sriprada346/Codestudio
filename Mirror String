@@ -1,0 +1,31 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static Boolean isReflectionEqual(String s) {
+        // Write your code here.
+       String[] str = {"A","H","I","M","O","T","U","V","W","X","Y"};
+
+        ArrayList<String> arr = new ArrayList<>();
+        for(String  i : str)
+        {
+            arr.add(i);
+        }
+       StringBuilder sr = new StringBuilder(s);
+       String st = new String(sr.reverse());
+       
+       if(s.equals(st) || arr.contains(str))
+       {       
+           for(int i=0;i<s.length();i++)
+           {
+               if(!arr.contains(String.valueOf(s.charAt(i))))
+               {
+                   return false;
+                   
+               }           
+           }
+           return  true;
+       }
+       else
+          return false;       
+    }
+}
