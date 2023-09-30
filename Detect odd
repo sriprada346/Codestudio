@@ -1,0 +1,43 @@
+import java.util.* ;
+import java.io.*; 
+
+public class Solution {
+    static int[] detectOdd(int n, int nums[]) {
+        // Write your code here.
+        HashMap<Integer,Integer> hasmap = new HashMap<>();
+
+        for(int i: nums)
+        {
+            if(!hasmap.containsKey(i))
+            {
+                hasmap.put(i,1);
+            }
+            else
+            {
+                hasmap.put(i,hasmap.get(i)+1);
+            }
+        }
+
+        ArrayList<Integer> arr_ans =new ArrayList<>();
+
+        for(Map.Entry<Integer,Integer> map : hasmap.entrySet())
+        {
+            if((map.getValue())%2!=0)
+            {
+                arr_ans.add(map.getKey());
+            }
+        } 
+
+        int[] aa = new int[arr_ans.size()];
+        int index=0;
+
+        for(int i : arr_ans)
+        {
+            aa[index++]=i;
+        }
+        Arrays.sort(aa);
+        return aa;
+
+
+    }
+}
