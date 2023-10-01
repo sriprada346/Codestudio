@@ -1,0 +1,37 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        
+        String[] str_arr = str.split(" ");
+        HashMap<String,Integer> hasmap = new HashMap<>();
+        
+        for(String s : str_arr)
+        {
+            if(!hasmap.containsKey(s))
+            {
+                hasmap.put(s,1);
+            }
+            else
+            {
+                hasmap.put(s,hasmap.get(s)+1);
+            }
+        }
+        
+        int maxx = 0;
+        String ss = " ";
+        for(Map.Entry<String,Integer> mapes : hasmap.entrySet())
+        {
+            maxx = Math.max(maxx,mapes.getValue());
+                ss = mapes.getKey();
+        }
+        
+        System.out.println(ss);
+      
+    }
+}
