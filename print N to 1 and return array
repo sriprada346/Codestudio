@@ -1,0 +1,24 @@
+public class Solution
+{
+    public static int[] printNos(int x) {
+        // Write Your Code Here
+        int arr[] = new int[x];
+        return printOne(arr,x);
+    }
+
+    public static int[] printOne(int[] arr,int x)
+    {
+        if(x == 0)
+        {
+            return arr;
+
+        }
+        else
+        {
+            arr[arr.length-x]=x;
+            return printOne(arr,x-1);
+        }
+
+    }
+    
+}
