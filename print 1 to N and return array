@@ -1,0 +1,22 @@
+public class Solution {
+
+    public static int[] printNos(int x) {
+        // Write Your Code Here
+        int[] arr = new int[x];
+        return printone(arr,x);
+    }
+
+
+    public static int[] printone(int arr[],int x)
+    {
+        if(x == 0)
+        {
+            return arr;
+        }
+        else
+        {
+            arr[x-1]=x;
+            return printone(arr,x-1);
+        }
+    }
+}
