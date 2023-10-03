@@ -1,0 +1,27 @@
+public class Solution {
+    public static boolean isPalindrome(String str) {
+        // Write your code here.
+        int n = str.length();
+
+        if(n==0)
+        {
+            return true;
+        }
+        return ispalrec(str,0,n-1);
+
+    }
+
+    public static boolean ispalrec(String str,int s,int e)
+    {
+        if(s == e)
+        return true;
+
+        if ((str.charAt(s)) != (str.charAt(e)))
+            return false;
+        
+        if (s < e + 1)
+            return ispalrec(str, s + 1, e - 1);
+ 
+        return true;
+    }
+}
