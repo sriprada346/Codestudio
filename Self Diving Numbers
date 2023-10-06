@@ -1,0 +1,37 @@
+import java.util.* ;
+import java.io.*; 
+import java.util.ArrayList;
+
+public class Solution {
+    public static ArrayList<Integer> findAllSelfDividingNumbers(int lower, int upper) {
+        // Write your code here.
+        ArrayList<Integer> arr = new ArrayList<>();
+
+        for(int i = lower;i<=upper;i++)
+        {
+            if(check_num(i))
+            {
+                arr.add(i);
+            }
+        }
+        return arr;
+
+    }
+
+    public static boolean check_num(int i)
+    {
+        int val = i;
+        boolean final_val = false;
+        while(i > 0)
+        {
+            int rem = i%10;
+            if(rem == 0 || val % rem!=0)
+            {
+                return false;
+            }
+            i = i/10;
+        }
+        return true;
+       
+    }
+}
