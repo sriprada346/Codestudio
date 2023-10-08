@@ -1,0 +1,49 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        
+        String str =  sc.nextLine();
+        String arr[]= str.split(" ");
+        
+        ArrayList<String> arrs = new ArrayList<>();
+        
+        for(String i : arr)
+        {
+               arrs.add(i);
+        }
+        
+        String com = ".com";
+        String org = ".org";
+        String net = ".net";
+        
+        String final_ans = "";
+        
+        int maxx = 0;
+        int idx = -1;
+        
+        for(int i =0;i<arrs.size();i++)
+        {
+            if(arrs.get(i).contains(com) || arrs.get(i).contains(org) || arrs.get(i).contains(net))
+            {
+                if(arrs.get(i).length()>maxx){
+                    idx = i;
+                    maxx = arrs.get(i).length();
+                }  
+            }
+        }
+        
+        if(idx==-1)
+        {
+            System.out.print("NA");
+        }
+        else
+        {
+            System.out.print(arrs.get(idx));
+        }
+    }
+}
