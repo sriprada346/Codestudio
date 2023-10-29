@@ -1,0 +1,40 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+        
+        HashMap<Character,Integer> hasmap = new HashMap<>();
+        char[] str_arr = str.toCharArray();
+        ArrayList<Character> arr = new ArrayList<>();
+       
+        
+        for(char c : str_arr)
+        {
+            if(!arr.contains(c))
+            {
+                arr.add(c);
+                hasmap.put(c,1);
+            }
+            else
+            {
+                hasmap.put(c,hasmap.get(c)+1);
+            }
+        }
+        
+        StringBuilder sb = new StringBuilder();
+        
+        for(char c : arr)
+        {
+            sb.append(c);
+            sb.append(hasmap.get(c));
+        }
+        
+        System.out.println(sb.toString());
+        
+    }
+}
