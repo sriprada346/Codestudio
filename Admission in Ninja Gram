@@ -1,0 +1,27 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+	
+	public static boolean ninjaGram(String str) {
+
+		// Write your code here
+		char[] arr = str.toLowerCase().toCharArray();
+		ArrayList<Character> ar = new ArrayList<>();
+
+		for(char c : arr)
+		{
+			if(!ar.contains(c))
+			{
+				ar.add(c);
+			}
+		}
+
+		if(ar.size()==26)
+		{
+			return true;
+		}
+		else
+			return false;
+
+	}
+}
