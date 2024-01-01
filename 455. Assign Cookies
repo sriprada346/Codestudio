@@ -1,0 +1,24 @@
+class Solution {
+    public int findContentChildren(int[] g, int[] s) {
+         Arrays.sort(g);
+        Arrays.sort(s);
+
+        // Initialize counters
+        int contentChildren = 0;
+        int gIndex = 0;
+        int sIndex = 0;
+
+        // Iterate through both lists
+        while (gIndex < g.length && sIndex < s.length) {
+            // If the current cookie size can satisfy the current child's greed
+            if (s[sIndex] >= g[gIndex]) {
+                contentChildren++;
+                gIndex++;  // Move to the next child
+            }
+            sIndex++;  // Move to the next available cookie
+        }
+
+        return contentChildren;
+        
+    }
+}
