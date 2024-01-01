@@ -1,0 +1,19 @@
+import java.util.* ;
+import java.io.*; 
+
+public class Solution {
+	public static boolean checkEvenPartitioning(int n) {
+		
+		// Write your code here
+		if(n==2)
+		{
+			return false;
+		}
+		else if(n%2==0)
+		{
+			return true;
+		}
+		else
+			return false;
+	}
+}
