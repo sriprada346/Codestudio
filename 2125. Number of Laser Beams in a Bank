@@ -1,0 +1,21 @@
+class Solution {
+    public int numberOfBeams(String[] bank) {
+        int res = 0;
+        int lastRowLaserNum = 0;
+        int n = bank[0].length();
+
+        for (int i = 0; i < bank.length; i++) {
+            int laserCount = 0;
+            for (int j = 0; j < n; j++) {
+                if (bank[i].charAt(j) == '1') {
+                    laserCount++;
+                }
+            }
+         if (laserCount != 0) {
+                res += lastRowLaserNum * laserCount;
+                lastRowLaserNum = laserCount;
+            }
+        }
+        return res;
+    }
+}
