@@ -1,0 +1,65 @@
+public class Solution{
+    static class Stack {
+        private int capacity;
+        private int[] array;
+        private int top;
+        Stack(int capacity) {
+            // Write your code here.
+            this.capacity = capacity;
+            this.array =new int[capacity];
+            this.top = -1;
+        }
+        public void push(int num) {
+            // Write your code here.
+            if(isFull()==1)
+            {
+                 
+            }  
+            else
+            {
+                array[++top]= num;
+               
+            }
+        }
+        public int pop() {
+            // Write your code here.
+            if(isEmpty() == 1)
+            {
+                return -1;
+              
+            }
+            else
+               return array[top--];   
+
+        }
+        public int top() {
+            // Write your code here.
+             if(isEmpty() == 1)
+            {
+                 return -1;
+            }
+            else    
+               
+                return array[top];
+
+        }
+        public int isEmpty() {
+            // Write your code here.
+            if(top == -1)
+            {
+                return 1;
+            }
+            else
+                return 0;
+        }
+        public int isFull() {
+            // Write your code here.
+            if(top == capacity-1)
+            {
+                return 1;
+            }
+            else
+                return 0;
+        }
+    }
+}
