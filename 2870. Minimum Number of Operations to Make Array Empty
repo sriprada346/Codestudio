@@ -1,0 +1,38 @@
+import java.util.*;
+class Solution {
+    public int minOperations(int[] nums) {
+        HashMap<Integer,Integer> hasmap = new HashMap<>();
+
+        for(int elem : nums)
+        {
+            hasmap.put(elem,hasmap.getOrDefault(elem,0)+1);
+        } 
+        int main_count = 0;
+
+
+       for(int i:hasmap.values())
+       {
+           
+           if(i==1)
+           {
+               return -1;
+           }
+           if(  i%3 == 0)
+           {
+               main_count += i/3;
+           }
+           else if(i==2)
+           {
+               main_count += 1;
+           }
+           else if(i>=4)
+           {
+               main_count += (i/3)+1;
+           }
+          
+       }
+      
+   
+        return main_count;
+    }
+}
