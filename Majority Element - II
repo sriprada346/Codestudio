@@ -1,0 +1,32 @@
+import java.io.*;
+import java.util.* ;
+
+import java.util.ArrayList;
+
+public class Solution 
+{
+    public static ArrayList<Integer> majorityElementII(ArrayList<Integer> arr) 
+    {
+        // Write your code here.
+        HashMap<Integer,Integer> hasmap = new HashMap<>();
+        ArrayList<Integer> arls = new ArrayList<>();
+
+        int flor = arr.size()/3;
+
+        for(int i:arr)
+        {
+            hasmap.put(i,hasmap.getOrDefault(i,0)+1);
+        }
+
+        for(Map.Entry<Integer,Integer> entry : hasmap.entrySet())
+        {
+            if(entry.getValue() > flor)
+            {
+                arls.add(entry.getKey());
+            }
+        }
+
+    return arls;
+
+    }
+}
