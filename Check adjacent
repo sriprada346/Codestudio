@@ -1,0 +1,37 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static boolean checkBits(int n) {
+        // Write your code here.
+        String str = Integer.toBinaryString(n);
+        char[] chararr = str.toCharArray();
+
+        boolean flag1 = false,flag2 = false;
+        for(int i =1;i<chararr.length;i++)
+        {
+            if(chararr[i] == '1' && chararr[i-1]=='0')
+            {
+                flag1 = true;
+            }
+            else if(chararr[i]=='0' && chararr[i-1]=='1')
+            {
+                flag2 = true;   
+            }  
+            else if(chararr[i]==chararr[i-1])
+            {
+                flag1 = false;
+                flag2= false;
+                break;
+            }
+        }
+
+        if(flag1 && flag2)
+        {
+            return true;
+        }
+        else
+        
+            return false;
+        
+    }
+}
