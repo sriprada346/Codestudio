@@ -1,0 +1,25 @@
+class Solution {
+    public boolean uniqueOccurrences(int[] arr) {
+        HashMap<Integer,Integer> hasmap = new HashMap<>();
+        
+        for(int i:arr)
+        {
+            hasmap.put(i,hasmap.getOrDefault(i,0)+1);
+        }
+        
+        ArrayList<Integer> arrs = new ArrayList<>();
+        
+        for(int x : hasmap.values())
+        {
+            if(arrs.contains(x))
+            {
+                return false;
+            }
+            else 
+            {
+                arrs.add(x);
+            }
+        }
+        return true;
+    }
+}
