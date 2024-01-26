@@ -1,0 +1,29 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+	public static int[] termsOfAP(int x){
+		// Write your code here.
+		int[] arr = new int[x];
+	
+
+		int i = 1;
+		int index=0;
+		while(index != x )
+		{
+			int m = 3*i+2;
+			if(m%4==0 )
+			{
+				//I is not incrementing
+				
+				
+			}
+			else
+			{
+				arr[index++]=m;
+			}
+			i++;
+				
+		}
+		return arr;
+	}
+}
