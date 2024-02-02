@@ -1,0 +1,48 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+	public static int slotScore(String original, String guess) {
+		// Write your code here.
+		char[] arr1 = original.toCharArray();
+		char[] arr2 = guess.toCharArray();
+
+			HashMap<Character,Integer> arr1_count = new HashMap<>();
+			HashMap<Character,Integer> arr2_count = new HashMap<>();
+
+
+		for(char c : arr1)
+		{
+				arr1_count.put(c,arr1_count.getOrDefault(c,0)+1);
+		}
+
+		for(char c : arr2)
+		{
+				arr2_count.put(c,arr2_count.getOrDefault(c,0)+1);
+		}
+
+		int perfect_hit=0;
+		int pseudo_hit =0;
+
+		for(int i =0;i<arr1.length;i++)
+		{
+			if(arr1[i]==arr2[i])
+			{
+				perfect_hit++;
+				arr1_count.put(arr1[i],arr1_count.get(arr1[i])-1);
+				arr2_count.put(arr2[i],arr2_count.get(arr2[i])-1);
+
+			}
+		}
+
+		for(char c:arr2_count.keySet())
+		{
+			if(arr1_count.containsKey(c))
+			{
+				pseudo_hit += Math.min(arr1_count.get(c),arr2_count.get(c));
+			}
+		}
+
+		int final_ans = perfect_hit * 2 + pseudo_hit;
+		return final_ans;  
+	}
+}
