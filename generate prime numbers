@@ -1,0 +1,36 @@
+
+import java.util.*;
+public class Solution {
+
+	public static ArrayList<Integer> primeNumbersTillN(int N) 
+	{ 
+	 	// Write your code here
+		 ArrayList<Integer> arr = new ArrayList<Integer>();
+		 for(int i=2;i<=N;i++)
+		 {
+				 if(isprime(i))
+				 {
+					 arr.add(i);
+				 }
+		 }
+		 return arr;
+	}
+
+	public static boolean isprime(int num)
+	{
+
+		if(num <=1)
+		{
+			return false;
+		}
+		int count = 0;
+		for(int j = 2;j<=Math.sqrt(num);j++)
+		{
+			if(num%j==0)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+}
