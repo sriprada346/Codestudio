@@ -1,0 +1,35 @@
+//Q3. Given a string, the task is to find the maximum consecutive repeating character in a string.
+public class task01_03 {
+    public static void main(String[] args) {
+        String str1 = "aaabbcbbb";
+        char maxChar1 = consecutive_max_char(str1);
+        System.out.println("Consecutive max char is : " + maxChar1);
+    }
+    public static char consecutive_max_char(String str) {
+
+        char maxChar = str.charAt(0);
+        char currentChar = str.charAt(0);
+
+        int currentCount = 1;
+        int maxCount = 1;
+        
+        for (int i = 1; i < str.length(); i++) {
+            if (str.charAt(i) == currentChar) {
+                currentCount++;
+            } else {
+                if (currentCount > maxCount) {
+                    maxCount = currentCount;
+                    maxChar = currentChar;
+                }
+                currentChar = str.charAt(i);
+                currentCount = 1;
+            }
+        }
+                if (currentCount > maxCount) {
+            maxChar = currentChar;
+        }
+        
+        return maxChar;
+    }
+}
+
