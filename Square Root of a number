@@ -1,0 +1,21 @@
+import java.util.* ;
+import java.io.*; 
+
+public class Solution {
+
+	public static int sqrtN(long N) {
+	
+		int index = 1;
+		int count = 0;
+		 while(N > 0)
+		 {
+			N = N - index;
+			index = index+2;
+			if(N >= 0)
+			{
+				count++;
+			}
+		 }
+		 return count;
+	}
+}
