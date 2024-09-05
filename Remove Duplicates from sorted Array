@@ -1,0 +1,21 @@
+public class Solution {
+    public static int removeDuplicates(int[] arr,int n) {
+        // Write your code here.
+        int count = 0;
+
+        for(int i =1;i<n;i++)
+        {
+            if(arr[i-1] < arr[i])
+            {
+                count++;
+            }
+        }
+
+        if(arr[n-2] < arr[n-1] || arr[n-2] == arr[n-1])
+        {
+            count++;
+        }
+
+        return count;
+    }
+}
