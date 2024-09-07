@@ -1,0 +1,32 @@
+
+import java.io.*; 
+import java.util.*;
+
+public class Solution {
+
+    public static int[] missingAndRepeating(ArrayList<Integer> arr, int n) {
+        // Write your code here
+        HashSet<Integer> seen =  new HashSet<>();
+        int[] final_arr = new int[2];
+
+        int arr_sum = 0;
+        int expect_sum = n*(n+1)/2;
+
+        int repeat_val = 0;
+        for(int a : arr)
+        {
+            if(seen.contains(a))
+            {
+                final_arr[1] = a;
+            }
+            else
+            {
+                seen.add(a);
+            }
+            arr_sum += a;
+        }
+
+        final_arr[0] = expect_sum - arr_sum + final_arr[1]; 
+        return final_arr;
+    }
+}
