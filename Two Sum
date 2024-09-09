@@ -1,0 +1,39 @@
+import java.util.*;
+
+
+public class Solution {
+	public static ArrayList<Pair<Integer, Integer>> twoSum(ArrayList<Integer> arr, int target, int n) {
+		// Write your code here.
+
+
+
+		
+		ArrayList<Pair<Integer,Integer>> arr_res = new ArrayList<>();
+
+	    int low_ptr = 0;
+		int high_ptr = n-1;
+
+		HashMap<Integer,Integer> hasmap = new HashMap<>();
+
+		for(int i = 0 ;i<n;i++)
+		{
+			int need = target - arr.get(i);
+			if(hasmap.containsKey(need))
+			{
+				arr_res.add(new Pair<>(arr.get(i),need));
+			}
+			else
+			{
+				hasmap.put(arr.get(i),i);
+			}
+		}
+		
+		if(arr_res.isEmpty())
+		{
+			arr_res.add(new Pair<>(-1,-1));
+		}
+		return arr_res;
+	}
+}
+
+
