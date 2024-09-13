@@ -1,0 +1,31 @@
+class Solution {
+    public int compress(char[] chars) {
+        int start = 0;
+        int end = 0;
+        while(end < chars.length)
+        {
+            char current_char = chars[end];
+            int count = 0;
+
+            while(end < chars.length && current_char ==  chars[end])
+            {
+                count++;
+                end++;
+            }
+
+            chars[start] = current_char;
+            start++;
+
+            if(count > 1)
+            {
+                for(char c : Integer.toString(count).toCharArray())
+                {
+                    chars[start] = c;
+                    start++;
+                }
+            }  
+        }
+
+        return start;
+    }
+}
