@@ -1,0 +1,42 @@
+class Solution {
+    public String reverseWords(String s) {
+        char[] s_arr = s.toCharArray();
+
+        String fin_str = "";
+
+        int start = 0;
+        int end = 0;
+        while( end < s.length())
+        {
+          
+            while(start<s.length() && s_arr[start]==' ')
+            {
+                start++;
+            }
+
+            end = start;
+            while(end<s.length() && s_arr[end] != ' ')
+            {
+                end++;
+            }
+            
+            if(start < end)
+            {
+                String str = s.substring(start,end);
+                
+                if( fin_str.isEmpty())
+                {
+                    fin_str =  str;
+                }
+                else
+                {
+                    fin_str = str + " " + fin_str;
+                }
+            }
+
+            start = end + 1;
+            
+        }
+        return fin_str;
+    }
+}
