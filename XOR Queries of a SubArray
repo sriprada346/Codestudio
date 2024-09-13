@@ -1,0 +1,24 @@
+class Solution {
+    public int[] xorQueries(int[] arr, int[][] queries) {
+        int[] final_ans = new int[queries.length];
+
+        for(int i =0;i<queries.length;i++)
+        {
+            int low = queries[i][0];
+            int high = queries[i][1];
+
+            final_ans[i] = find_xor(arr,low,high); 
+        }
+        return final_ans;
+    }
+
+
+    public int find_xor(int[] arr , int low ,int high){
+        int val = 0;
+        for(int i = low ; i<=high;i++)
+        {
+            val = val ^ arr[i];
+        }
+        return val;
+    }
+}
