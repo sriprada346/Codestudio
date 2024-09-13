@@ -1,0 +1,72 @@
+import java.util.* ;
+import java.io.*; 
+import java.util.ArrayList;
+
+public class Solution {
+	public static String ticTacToeWinner(ArrayList<ArrayList<Integer>> moves, int n) {
+		// Write your code here
+		int[][] tic_toe_arr = new int[3][3];
+
+
+		for(int i=0;i<moves.size();i++)
+		{
+			int plyr1_or_plyr2 = (i%2==0)?1:2;
+
+			int row = moves.get(i).get(0);
+			int col = moves.get(i).get(1);
+
+			tic_toe_arr[row][col] = plyr1_or_plyr2;  
+		}
+
+		if(check_winner(tic_toe_arr,1))
+		{
+			return "player1";
+		}
+		else if(check_winner(tic_toe_arr,2))
+		{
+			return "player2";
+		}
+		else if(n == 9)
+		{
+			return "draw";
+		}
+		else
+			return "uncertain";
+
+	}
+
+	public static boolean check_winner(int[][] tic_toe_arr , int player)
+	{
+		//column
+		for(int i = 0;i<tic_toe_arr[0].length;i++ )
+		{
+			if(tic_toe_arr[0][i] == player && tic_toe_arr[1][i] == player && tic_toe_arr[2][i] == player)
+			{
+				return true;
+			}
+		}
+
+		//row
+		for(int i=0;i<tic_toe_arr[0].length;i++)
+		{
+			if(tic_toe_arr[i][0] == player && tic_toe_arr[i][1] == player && tic_toe_arr[i][2] == player)
+			{
+				return true;
+			}
+		}
+
+		//diagonal
+		
+		if(tic_toe_arr[0][0] == player && tic_toe_arr[1][1] == player && tic_toe_arr[2][2] == player )
+		{
+			return true;
+		}
+
+		if(tic_toe_arr[0][2] == player && tic_toe_arr[1][1] == player && tic_toe_arr[2][0] == player )
+		{
+			return true;
+		}
+
+		return false;
+	}
+}
