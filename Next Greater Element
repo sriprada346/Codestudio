@@ -1,0 +1,31 @@
+public class Solution {
+    public static int[] nextGreaterElement(int[] arr, int n) {
+        // Write your code here.
+        int[] arr_res = new int[n];
+
+        for(int i =n-1;i>=0;i--)
+        {
+            if(i == n-1 )
+            {
+                arr_res[i] = -1;
+            }
+            else if(arr[i] < arr[i+1] )
+            {
+                arr_res[i] = arr[i+1];
+            }
+            else
+            {
+                arr_res[i] = -1;
+                for(int j = i+1;j<n;j++)
+                {
+                    if(arr[i] < arr[j])
+                    {
+                        arr_res[i] = arr[j];
+                        break;
+                    }
+                }
+            }
+        }
+        return arr_res;
+    }
+}
