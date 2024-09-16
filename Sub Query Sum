@@ -1,0 +1,56 @@
+import java.util.* ;
+import java.io.*; 
+import java.util.ArrayList;
+
+public class Solution {
+
+	public static ArrayList<Integer> findSubmatrixSum(ArrayList<ArrayList<Integer>> arr, ArrayList<ArrayList<Integer>> queries) {
+
+		// Write your code here
+
+		ArrayList<Integer> ars = new ArrayList<>();
+		int sum = 0;
+
+		for(int i = 0;i<queries.size();i++)
+		{
+			int start_i = queries.get(i).get(0);
+			int start_j = queries.get(i).get(1);
+			int end_i = queries.get(i).get(2);
+			int end_j = queries.get(i).get(3);
+
+			sum = check_sum(arr,start_i,start_j,end_i,end_j);
+			ars.add(sum);
+		}
+
+		return ars;
+	}
+
+
+	public static int check_sum(ArrayList<ArrayList<Integer>> arr,int start_i,int start_j,int end_i,int end_j){
+		int sum = 0;
+		if(start_i == end_i && start_j != end_j)
+		{
+			for(int i = start_j ;i<=end_j;i++)
+			{
+				sum += arr.get(start_i).get(i);
+			}
+		}
+		else if(start_j == end_j && start_i != start_j){
+			for(int i = start_i;i<=end_i;i++)
+			{
+				sum += arr.get(i).get(start_j);
+			}
+		}
+		else
+		{
+			for(int i = start_i;i<=end_i;i++)
+			{
+				for(int j = start_j;j<= end_j;j++)
+				{
+					sum += arr.get(i).get(j);
+				}
+			}
+		}
+		return sum;
+	}
+}
