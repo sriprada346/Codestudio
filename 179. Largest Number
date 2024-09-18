@@ -1,0 +1,45 @@
+import java.math.*;
+class Solution {
+    public String largestNumber(int[] nums) {
+       String[] strarr = new String[nums.length];
+
+       for(int i=0;i<nums.length;i++)
+       {
+            strarr[i] = String.valueOf(nums[i]);
+       }
+
+
+       for(int i =0;i<strarr.length;i++)
+       {
+            for(int j = i+1;j<strarr.length;j++)
+            {
+                String opt1 = strarr[i] + strarr[j];
+                String opt2 = strarr[j] + strarr[i];
+
+                BigInteger n1 = new BigInteger(opt1);
+                BigInteger n2 = new BigInteger(opt2);
+
+
+                if( n2.compareTo(n1) > 0)
+                {
+                    String temp = strarr[i];
+                    strarr[i] = strarr[j];
+                    strarr[j] = temp;
+                }
+            }
+       }
+
+       if(strarr[0].equals("0"))
+       {
+        return "0";
+       }
+
+       String s = "";
+       for(String st : strarr)
+       {
+        s += st;
+       }
+
+       return s;
+}
+}
