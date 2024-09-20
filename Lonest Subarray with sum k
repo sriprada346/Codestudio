@@ -1,0 +1,53 @@
+
+import java.util.HashMap;
+class HelloWorld {
+    public static void main(String[] args) {
+        
+        int a[] = {1,7,1,8,8,4,3,1,2,1,5};
+        
+        int k = 16;
+      
+        int start = 0;
+        int end = -1;
+        
+        
+        int current_sum = 0;
+        
+        HashMap<Integer,Integer> hasmap = new HashMap<>();
+        
+        for(int i = 0;i<a.length;i++)
+        {
+            current_sum += a[i];
+            
+            if( current_sum == k)
+            {
+                start = 0;
+                end = i;
+                //break;
+            }
+            
+            if(hasmap.containsKey(current_sum - k))
+            {
+                start = hasmap.get(current_sum - k)+1;
+                end = i;
+            }
+            
+            hasmap.put(current_sum,i);
+        }
+        
+        if(end == -1)
+        {
+            System.out.println("not found ");
+        }
+        else
+        {
+            for(int i = start ;i <= end ;i++)
+            {
+                System.out.print(a[i] + " ");
+            }
+            
+        }
+        
+        
+    }
+}
