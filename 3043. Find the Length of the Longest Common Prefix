@@ -1,0 +1,77 @@
+
+
+class Solution {
+
+    class TrieNode{
+        TrieNode[] children = new TrieNode[10];
+        boolean isEndNumber;
+    }
+
+    class Trie{
+        TrieNode root;
+
+        Trie(){
+            root = new TrieNode();
+        }
+
+
+        public void insert(String num)
+        {
+            TrieNode node = root;
+
+            for(char digit : num.toCharArray())
+            {
+               int index = digit - '0';
+               if(node.children[index] == null)
+               {
+                    node.children[index] = new TrieNode();
+               }
+               node = node.children[index];
+            }
+            node.isEndNumber = true;
+        }
+
+
+        public int findLongestCommonPrefix(String num)
+        {
+            TrieNode node = root;
+            int commonlength = 0;
+
+            for(char digit : num.toCharArray())
+            {
+                int index = digit - '0';
+
+                if(node.children[index] != null){
+                    commonlength++;
+                    node = node.children[index];
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            return commonlength;
+        }
+    }
+
+    public int longestCommonPrefix(int[] arr1, int[] arr2) {
+
+        Trie trie = new Trie();
+
+        for(int num : arr1)
+        {
+            trie.insert(String.valueOf(num));
+        }
+
+        int commonPrefixLength = 0;
+
+        for(int num : arr2)
+        {
+            int val = trie.findLongestCommonPrefix(String.valueOf(num));
+            commonPrefixLength = Math.max(commonPrefixLength,val);
+        }
+        
+        return commonPrefixLength;
+    }
+}
