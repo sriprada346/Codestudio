@@ -1,0 +1,69 @@
+
+
+class Trie {
+     class TrieNode{
+         TrieNode[] children = new TrieNode[26];
+        boolean wordend;
+    }
+   
+    private TrieNode root;
+
+    public Trie() {
+       root = new TrieNode();
+    }
+    
+    public void insert(String word) {
+        TrieNode node = root;
+        char[] ch = word.toCharArray();
+        int index = 0;
+        for(char c : ch){
+            index = c - 'a';
+            if(node.children[index] == null)
+            {
+                node.children[index] = new TrieNode();
+            }
+            node = node.children[index];
+        }
+        node.wordend = true;
+    }
+    
+    public boolean search(String word) {
+        TrieNode node = root;
+        char[] ch = word.toCharArray();
+
+        int index = 0;
+        for(char c : ch){
+            index = c - 'a';
+            if(node.children[index] == null){
+                return false;
+            }
+            node = node.children[index];
+        }
+
+       return node.wordend;
+    }
+    
+    public boolean startsWith(String prefix) {
+        char[] ch = prefix.toCharArray();
+        TrieNode node = root;
+
+        int index = 0;
+        for(char c : ch){
+            index = c - 'a';
+            if(node.children[index] == null)
+            {
+                return false;
+            }
+            node = node.children[index];
+        }
+        return true;
+    }
+}
+
+/**
+ * Your Trie object will be instantiated and called as such:
+ * Trie obj = new Trie();
+ * obj.insert(word);
+ * boolean param_2 = obj.search(word);
+ * boolean param_3 = obj.startsWith(prefix);
+ */
