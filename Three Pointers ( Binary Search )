@@ -1,0 +1,35 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static int threePointer(ArrayList<Integer> X, ArrayList<Integer> Y, ArrayList<Integer> Z) {
+        // Write your code here.
+        int final_ans = Integer.MAX_VALUE;
+
+        int i=0,j=0,k=0;
+        while(i<X.size() && j<Y.size()&&k<Z.size())
+        {
+            int min = Math.min(X.get(i),Math.min(Y.get(j),Z.get(k)));
+            int max = Math.max(X.get(i),Math.max(Y.get(j),Z.get(k)));
+
+            int diff = Math.abs(max-min);
+
+            if(diff < final_ans)
+            {
+                final_ans = diff;
+            }
+
+            if(X.get(i) == min){
+                i++;
+            }else if(Y.get(j) == min)
+            {
+                j++;
+            }
+            else
+            {
+                k++;
+            }
+        }
+        return final_ans;
+       
+    }
+};
