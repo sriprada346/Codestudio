@@ -1,0 +1,46 @@
+class MyCalendarTwo {
+
+    private List<int[]> non_overlapping;
+    private List<int[]> overlapping;
+
+    public MyCalendarTwo() {
+        non_overlapping = new ArrayList();
+        overlapping = new ArrayList<>();
+    }
+    
+    public boolean book(int start, int end) {
+
+        for(int[] a : overlapping)
+        {
+            int st = a[0];
+            int ed = a[1];
+
+            if(st<end && ed>start){
+                return false;
+            }
+        }
+
+        for(int[] a : non_overlapping)
+        {
+            int st = a[0];
+            int ed = a[1];
+
+            if(end>st && ed>start)
+            {
+                int stt = Math.max(start,st);
+                int edd = Math.min(ed,end);
+                overlapping.add(new int[]{stt,edd});
+            }
+        }
+
+        non_overlapping.add(new int[]{start,end});
+        return true;
+        
+    }
+}
+
+/**
+ * Your MyCalendarTwo object will be instantiated and called as such:
+ * MyCalendarTwo obj = new MyCalendarTwo();
+ * boolean param_1 = obj.book(start,end);
+ */z
