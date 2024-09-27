@@ -1,0 +1,19 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static int kthSmallest(ArrayList<Integer> v, int n, int k) {
+        // Write your code here.
+        Queue<Integer> queue = new PriorityQueue();
+
+        for(int i : v){
+            queue.add(i);
+        }
+
+        while(k!=1){
+            queue.poll();
+            k--;
+        }
+
+        return queue.peek();
+    }
+}
