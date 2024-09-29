@@ -1,0 +1,17 @@
+class Solution {
+    public char kthCharacter(int k) {
+        StringBuilder sb = new StringBuilder("a");
+
+        while(sb.length() < k){
+            StringBuilder current_word = new StringBuilder();
+
+            for(int i = 0;i<sb.length();i++)
+            {
+                char next_char = (char)((sb.charAt(i)-'a'+1)%26 + 'a');
+                current_word.append(next_char);
+            }
+            sb.append(current_word);
+        }
+        return sb.charAt(k-1);
+    }
+}
