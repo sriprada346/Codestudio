@@ -1,0 +1,76 @@
+import java.util.*;
+class Solution {
+    public boolean parseBoolExpr(String expression) {
+        Stack<Character> stack = new Stack<>();
+
+        for(char c : expression.toCharArray())
+        {
+            if(c == ',')
+            {
+                continue;
+            }
+            else if(c != ')')
+            {
+                stack.push(c);
+            }
+            else
+            {
+                Stack<Character> st = new Stack<>();
+
+                while(stack.peek() != '(')
+                {
+                    st.push(stack.pop());   
+                }
+                stack.pop();
+
+                char expressio = stack.pop();
+
+                char c1 = solve_expression(st,expressio);
+
+                stack.push(c1);
+
+            }
+
+        }
+
+        return stack.pop() == 't';
+    }
+
+
+    public char solve_expression(Stack<Character> st , char c)
+    {
+        if(c == '|')
+        {
+            while(!st.isEmpty())
+            {
+                if(st.pop() == 't')
+                {
+                    return 't';
+                }
+            }
+            return 'f';
+            
+        }
+        else if(c=='&')
+        {
+            while(!st.isEmpty())
+            {
+                if(st.pop() == 'f')
+                {
+                    return 'f';
+                }
+            }
+            return 't';
+        }
+        else if(c == '!')
+        {
+            if(st.pop() == 'f')
+            {
+                return 't';
+            }
+
+            return 'f';
+        }
+        return 'f';
+    }
+}
